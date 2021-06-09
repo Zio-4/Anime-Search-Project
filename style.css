@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    font-family: Verdana;
+}
+
+#page-header{
+    display: flex;
+    justify-content: center;
+    background: #f0b120;
+    opacity: .8;
+    height: 7rem;
+    padding: 1rem;
+}
+
+#page-header img{
+    height: 7rem;
+    width: auto;
+}
