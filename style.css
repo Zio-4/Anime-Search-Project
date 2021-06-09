@@ -1,18 +1,23 @@
 body {
     margin: 0;
     font-family: Verdana;
+    background-color: rgb(236, 87, 87);
 }
 
 #page-header{
     display: flex;
     justify-content: center;
     background: #f0b120;
-    opacity: .8;
-    height: 7rem;
+    opacity: .9;
+    height: 10rem;
     padding: 1rem;
 }
 
 #page-header img{
-    height: 7rem;
+    height: 10rem;
     width: auto;
 }
+
+.anime-search {
+    text-align: center;
+  }
