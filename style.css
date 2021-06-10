@@ -1,13 +1,17 @@
 body {
     margin: 0;
     font-family: Verdana;
-    background-color: rgb(236, 87, 87);
+    background-color: rgb(255, 255, 255);
+}
+
+.description {
+    text-align: center;
 }
 
 #page-header{
     display: flex;
     justify-content: center;
-    background: #f0b120;
+    background: #60bfff;
     opacity: .9;
     height: 10rem;
     padding: 1rem;

@@ -4,29 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All About Anime</title>
+    <title>The Bored Button</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="page-header">  
-        <img src="images/AnimeLogo6.jpg"
-            alt="All About Anime image"
-        />
+        <h1>The Bored Button</h1>
     </div>
-    <form class="anime-search">
-        <h3>Search for your favorite Anime!</h3>
-        <input
-            type="text"
-            name="anime"
-            value=""
-            placeholder="Enter any anime..."
-            class="input-text"
-        />
-        <input
-            type="submit"
-            value="Search"
-            class="submit"
-        />  
+    <p class="description">Are you bored? Tired of watching the same old show? Well now you can quell your boredom with this magic button!</p>
+    <form class="buttons">
+        <h3>Find an activity to do!</h3>
+        <button id="button1" type="button">
+            Get Activity
+        </button>
+        <label for="acivity-type-select">Type of Activity:</label>
+        <select id="activity-type">
+            <option value="">--Select from the dropdown--</option>
+            <option value="education">Education</option>
+            <option value="recreational">Recreation</option>
+            <option value="social">Social</option>
+            <option value="diy">Diy (Do it yourself)</option>
+            <option value="charity">Charity</option>
+            <option value="cooking">Cooking</option>
+            <option value="relaxation">Relaxation</option>
+            <option value="music">Music</option>
+            <option value="busywork">Busywork</option>
+        </select>
+        
+        <label for="number-people-select">How many people:</label>
+
+        <select id="number-of-people">
+            <option value="">--Select from the dropdown--</option>
+            <option value="1">1</option>
+            <option value="cat">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10+">10+</option>
+        </select>
     </form>
     <div id="search-results-container"></div>
 
