@@ -12,11 +12,18 @@
         <h1>The Bored Button</h1>
     </div>
     <p class="description">Are you bored? Tired of watching the same old show? Well now you can quell your boredom with this magic button!</p>
-    <form class="buttons">
+    
+    
         <h3>Find an activity to do!</h3>
-        <button id="button1" type="button">
+        <div id="type-container"></div>
+        <br>
+        <div id="default-container"></div>
+        <div id="participants-container"></div>
+    <form class="buttons">
+        <button id="type-button" type="button">
             Get Activity
         </button>
+
         <label for="acivity-type-select">Type of Activity:</label>
         <select id="activity-type">
             <option value="">--Select from the dropdown--</option>
@@ -30,24 +37,27 @@
             <option value="music">Music</option>
             <option value="busywork">Busywork</option>
         </select>
-        
-        <label for="number-people-select">How many people:</label>
+        <button id="default-button" type="button">
+            Get Activity
+        </button>
 
+        <label for="number-people-select">How many people:</label>
         <select id="number-of-people">
             <option value="">--Select from the dropdown--</option>
             <option value="1">1</option>
-            <option value="cat">2</option>
+            <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
             <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10+">10+</option>
+            
         </select>
+       
+        <button id="people-button" type="button">
+            Get Activity
+        </button>
     </form>
-    <div id="search-results-container"></div>
+    
 
     <script type="text/javascript" src="index.js"></script>
 </body>
