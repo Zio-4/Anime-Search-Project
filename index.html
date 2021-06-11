@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Bored Button</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="page-header">  
@@ -13,50 +15,69 @@
     </div>
     <p class="description">Are you bored? Tired of watching the same old show? Well now you can quell your boredom with this magic button!</p>
     
-    
-        <h3>Find an activity to do!</h3>
-        <div id="type-container"></div>
-        <br>
-        <div id="default-container"></div>
-        <div id="participants-container"></div>
-    <form class="buttons">
-        <button id="type-button" type="button">
-            Get Activity
-        </button>
+    <h3>Find an activity to do!</h3>
+    <p id="legend">Accessibility: 
+        A factor describing how possible an event is to do with zero being the most accessible. On a scale from 0.0 to 1. <br>
+        Price: 
+        A factor describing the cost of the event with zero being free. On a scale from 0.0 to 1.
+    </p>
 
-        <label for="acivity-type-select">Type of Activity:</label>
-        <select id="activity-type">
-            <option value="">--Select from the dropdown--</option>
-            <option value="education">Education</option>
-            <option value="recreational">Recreation</option>
-            <option value="social">Social</option>
-            <option value="diy">Diy (Do it yourself)</option>
-            <option value="charity">Charity</option>
-            <option value="cooking">Cooking</option>
-            <option value="relaxation">Relaxation</option>
-            <option value="music">Music</option>
-            <option value="busywork">Busywork</option>
-        </select>
+        <section class="all-containers">
+            <div id="type-container"></div>
+            <div id="default-container"></div>
+            <div id="participants-container"></div>
+        </section>
+
+        <section class="dropdowns">
+            <div>
+                <label for="acivity-type-select">Type of Activity:</label>
+                <select id="activity-type">
+                    <option value="">--Select from the dropdown--</option>
+                    <option value="education">Education</option>
+                    <option value="recreational">Recreation</option>
+                    <option value="social">Social</option>
+                    <option value="diy">Diy (Do it yourself)</option>
+                    <option value="charity">Charity</option>
+                    <option value="cooking">Cooking</option>
+                    <option value="relaxation">Relaxation</option>
+                    <option value="music">Music</option>
+                    <option value="busywork">Busywork</option>
+                </select>
+            </div>
+            
+            <div>
+                <label for="number-people-select">How many people:</label>
+                <select id="number-of-people">
+                    <option value="">--Select from the dropdown--</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="8">8</option>              
+                </select>
+            </div>
+        </section>
+
+    <section class="buttons"> 
+        <div id="type-button-parent">
+            <button id="type-button" type="button">
+                Get Activity
+             </button>
+        </div>
         <button id="default-button" type="button">
             Get Activity
         </button>
-
-        <label for="number-people-select">How many people:</label>
-        <select id="number-of-people">
-            <option value="">--Select from the dropdown--</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="8">8</option>
-            
-        </select>
-       
         <button id="people-button" type="button">
             Get Activity
         </button>
-    </form>
+    </section>
+
+    <div class="liked-activities">
+        <h3>Liked Activities</h3>
+        <ul id="listed-activities"></ul>
+    </div>
+
     
 
     <script type="text/javascript" src="index.js"></script>

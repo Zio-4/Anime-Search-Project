@@ -26,28 +26,57 @@ fetch(baseURL + randomType + `${typeSelect.value}`)
     }
    typeResultsContainer.innerHTML = ""
    const newDiv = document.createElement('div')
-   const newH2 = document.createElement('h2')
+   const newH3 = document.createElement('h3')
    const accessibility = document.createElement('p')
    const typeActivity = document.createElement('p')
    const participants = document.createElement('p')
    const price = document.createElement('p')
-   const newSpan = document.createElement('span')
+   const newUl = document.createElement('ul')
+   const newList = document.createElement('li')
    
-   newH2.innerText = `${obj.activity}`
+   newH3.innerText = `${obj.activity}`
    newDiv.setAttribute('id', 'card')
    accessibility.innerText = `Accessibility: ${obj.accessibility}`
    typeActivity.innerText = `Type: ${obj.type}`
    participants.innerText = `Participants: ${obj.participants}`
    price.innerText = `Price: ${obj.price}`
-   newSpan.innerText = '&#x2661;'
+   newList.innerText = EMPTY_HEART
+   newList.setAttribute('id', 'like-glyph1')
 
    typeResultsContainer.appendChild(newDiv)
-   newDiv.appendChild(newH2)
+   newDiv.appendChild(newH3)
    newDiv.appendChild(accessibility)
    newDiv.appendChild(typeActivity)
    newDiv.appendChild(participants)
    newDiv.appendChild(price)
-   newDiv.appendChild(newSpan)
+   newDiv.appendChild(newUl)
+   newUl.appendChild(newList)
+
+   const heart = document.getElementById('like-glyph1')
+   const likeList = document.getElementById('listed-activities')
+
+   heart.addEventListener('click', heartClicked)
+   function heartClicked() {
+       if (newList.innerText === EMPTY_HEART) {
+       newList.innerText = FULL_HEART
+       newList.classList.add('activated-heart')
+       const li = document.createElement('li')
+       li.innerText = `${obj.activity}`
+       li.classList.add('liked')
+       likeList.append(li)
+
+       } else {
+        newList.innerText = EMPTY_HEART
+        newList.classList.remove('activated-heart')
+        const liked = document.querySelectorAll('.liked')
+        liked.forEach(element => {
+            if (element.innerText === `${obj.activity}`) {
+                element.remove()
+                            }         
+                        }
+                    )
+                }
+            }
         }
     )
 }
@@ -64,28 +93,61 @@ function defaultBtnClicked() {
     .then(obj => {
         defaultContainer.innerHTML = ""
         const newDiv = document.createElement('div')
-        const newH2 = document.createElement('h2')
+        const newH3 = document.createElement('h3')
         const accessibility = document.createElement('p')
         const typeActivity = document.createElement('p')
         const participants = document.createElement('p')
         const price = document.createElement('p')
+        const newUl = document.createElement('ul')
+        const newList = document.createElement('li')
         
-        newH2.innerText = `${obj.activity}`
+        newH3.innerText = `${obj.activity}`
         newDiv.setAttribute('id', 'card2')
         accessibility.innerText = `Accessibility: ${obj.accessibility}`
         typeActivity.innerText = `Type: ${obj.type}`
         participants.innerText = `Participants: ${obj.participants}`
         price.innerText = `Price: ${obj.price}`
+        newList.innerText = EMPTY_HEART
+        newList.setAttribute('id', 'like-glyph2')
      
         defaultContainer.appendChild(newDiv)
-        newDiv.appendChild(newH2)
+        newDiv.appendChild(newH3)
         newDiv.appendChild(accessibility)
         newDiv.appendChild(typeActivity)
         newDiv.appendChild(participants)
         newDiv.appendChild(price)
+        newDiv.appendChild(newUl)
+        newUl.appendChild(newList)
+
+        const heart = document.getElementById('like-glyph2')
+        const likeList = document.getElementById('listed-activities')
+     
+        heart.addEventListener('click', heartClicked)
+        
+        function heartClicked() {
+            if (newList.innerText === EMPTY_HEART) {
+                newList.innerText = FULL_HEART
+                newList.classList.add('activated-heart')
+                const li = document.createElement('li')
+                li.innerText = `${obj.activity}`
+                li.classList.add('liked')
+                likeList.append(li)
+     
+            } else {
+                newList.innerText = EMPTY_HEART
+                newList.classList.remove('activated-heart')
+                const liked = document.querySelectorAll('.liked')
+                liked.forEach(element => {
+                    if (element.innerText === `${obj.activity}`) {
+                    element.remove()
+                            }
+                        }
+                    )
+                }
+            }
         }
     )
-}
+}          
 
 // Elements for number of people button
 const participantsContainer = document.getElementById('participants-container')
@@ -95,34 +157,78 @@ const numberOfPeople = document.getElementById('number-of-people')
 numberBtn.addEventListener('click', numberButtonClicked)
 
 function numberButtonClicked() {
-fetch(baseURL + participantsNeeded + `${numberOfPeople.value}`)
-.then(resp => resp.json())
-.then(obj => {
-    if (numberOfPeople.value === "") {
-        alert('Please pick an amount of people for the activity!')
-        return
-    }
-   participantsContainer.innerHTML = ""
-   const newDiv = document.createElement('div')
-   const newH2 = document.createElement('h2')
-   const accessibility = document.createElement('p')
-   const typeActivity = document.createElement('p')
-   const participants = document.createElement('p')
-   const price = document.createElement('p')
-   
-   newH2.innerText = `${obj.activity}`
-   newDiv.setAttribute('id', 'card3')
-   accessibility.innerText = `Accessibility: ${obj.accessibility}`
-   typeActivity.innerText = `Type: ${obj.type}`
-   participants.innerText = `Participants: ${obj.participants}`
-   price.innerText = `Price: ${obj.price}`
+    fetch(baseURL + participantsNeeded + `${numberOfPeople.value}`)
+    .then(resp => resp.json())
+    .then(obj => {
+        if (numberOfPeople.value === "") {
+            alert('Please pick an amount of people for the activity!')
+            return
+        }
+            participantsContainer.innerHTML = ""
+            const newDiv = document.createElement('div')
+            const newH3 = document.createElement('h3')
+            const accessibility = document.createElement('p')
+            const typeActivity = document.createElement('p')
+            const participants = document.createElement('p')
+            const price = document.createElement('p')
+            const newUl = document.createElement('ul')
+            const newList = document.createElement('li')
 
-   participantsContainer.appendChild(newDiv)
-   newDiv.appendChild(newH2)
-   newDiv.appendChild(accessibility)
-   newDiv.appendChild(typeActivity)
-   newDiv.appendChild(participants)
-   newDiv.appendChild(price)
+            newH3.innerText = `${obj.activity}`
+            newDiv.setAttribute('id', 'card3')
+            accessibility.innerText = `Accessibility: ${obj.accessibility}`
+            typeActivity.innerText = `Type: ${obj.type}`
+            participants.innerText = `Participants: ${obj.participants}`
+            price.innerText = `Price: ${obj.price}`
+            newList.innerText = EMPTY_HEART
+            newList.setAttribute('id', 'like-glyph3')
+            
+
+            participantsContainer.appendChild(newDiv)
+            newDiv.appendChild(newH3)
+            newDiv.appendChild(accessibility)
+            newDiv.appendChild(typeActivity)
+            newDiv.appendChild(participants)
+            newDiv.appendChild(price)
+            newDiv.appendChild(newUl)
+            newUl.appendChild(newList)
+        
+            const heart = document.getElementById('like-glyph3')
+            const likeList = document.getElementById('listed-activities')
+
+            heart.addEventListener('click', heartClicked)
+            
+            function heartClicked() {
+                if (newList.innerText === EMPTY_HEART) {
+                    newList.innerText = FULL_HEART
+                    newList.classList.add('activated-heart')
+                    const li = document.createElement('li')
+                    li.innerText = `${obj.activity}`
+                    li.classList.add('liked')
+                    likeList.append(li)
+
+                } else {
+                    newList.innerText = EMPTY_HEART
+                    newList.classList.remove('activated-heart')
+                    const liked = document.querySelectorAll('.liked')
+                    liked.forEach(element => {
+                        if (element.innerText === `${obj.activity}`) {
+                        element.remove()
+                            }
+                        }
+                    )
+                }
+            }
         }
     )
 }
+
+// How to make it to just click the heart?
+//How to remove the list element that was just created when heart is reserved to empty?
+
+// query select liked list elements
+// iterate over them to match the activity name with the list name
+// remove them
+
+
+// put the heart in a span tag inside a list tag
