@@ -29,7 +29,7 @@ fetch(baseURL + randomType + `${typeSelect.value}`)
    baseCard.remove() 
    typeResultsContainer.innerHTML = ""
    const newDiv = document.createElement('div')
-   const newH4 = document.createElement('h4')
+   const newH3 = document.createElement('h3')
    const accessibility = document.createElement('p')
    const typeActivity = document.createElement('p')
    const participants = document.createElement('p')
@@ -37,7 +37,7 @@ fetch(baseURL + randomType + `${typeSelect.value}`)
    const pTag = document.createElement('p')
    const span = document.createElement('span')
    
-   newH4.innerText = `${obj.activity}`
+   newH3.innerText = `${obj.activity}`
    newDiv.setAttribute('id', 'card')
    accessibility.innerText = `Accessibility: ${obj.accessibility}`
    typeActivity.innerText = `Type: ${obj.type}`
@@ -47,7 +47,7 @@ fetch(baseURL + randomType + `${typeSelect.value}`)
    span.setAttribute('id', 'like-glyph1')
 
    typeResultsContainer.appendChild(newDiv)
-   newDiv.appendChild(newH4)
+   newDiv.appendChild(newH3)
    newDiv.appendChild(accessibility)
    newDiv.appendChild(typeActivity)
    newDiv.appendChild(participants)
@@ -228,8 +228,10 @@ function numberButtonClicked() {
     )
 }
 
+// Play with p tags in css to remove space between them
 // Change card headers
 // Add content to base card
-// Play with p tags in css to remove space between them
+// Change how things are listed from card 2 and 3 under liked activities
+
 
 // List # of like activities next to header?

@@ -90,8 +90,23 @@ h3 {
     height: 25rem;
     display: inline-grid;
     margin: 1rem 2rem;
-    box-shadow: 3px 4px #339fe7
+    box-shadow: 3px 4px #339fe7;
   }
+
+#card > p {
+    line-height: 1px;
+    margin: 2px 0;
+}
+
+#card2 > p {
+    line-height: 1px;
+    margin: 2px 0;
+  }
+
+#card3 > p {
+    line-height: 1px;
+    margin: 2px 0;
+}
 
   #like-glyph1, #like-glyph2, #like-glyph3 {
     cursor: pointer;
