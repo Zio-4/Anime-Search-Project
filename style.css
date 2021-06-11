@@ -80,7 +80,7 @@ h3 {
  }
 
 
-#card, #card2, #card3 {
+#card, #card2, #card3, #emptyCard {
     font-size: 13pt;
     text-align: center;
     border: grey solid 1px;

@@ -8,6 +8,8 @@ const baseURL = "http://www.boredapi.com/api/activity"
 const randomType = "?type="
 const participantsNeeded = "?participants="
 
+const baseCard = document.getElementById('emptyCard')
+
 // elements needed for type button interaction
 const typeResultsContainer = document.getElementById('type-container')
 const typeButton = document.getElementById('type-button')
@@ -24,6 +26,7 @@ fetch(baseURL + randomType + `${typeSelect.value}`)
         alert('Please pick a type of activity!')
         return
     }
+   baseCard.remove() 
    typeResultsContainer.innerHTML = ""
    const newDiv = document.createElement('div')
    const newH4 = document.createElement('h4')
@@ -166,6 +169,7 @@ function numberButtonClicked() {
             alert('Please pick an amount of people for the activity!')
             return
         }
+            baseCard.remove()
             participantsContainer.innerHTML = ""
             const newDiv = document.createElement('div')
             const newH3 = document.createElement('h3')
@@ -227,4 +231,8 @@ function numberButtonClicked() {
     )
 }
 
+// Add rest of stying changes to card 2 and 3
+// Add content to base card
 // Play with p tags in css to remove space between them
+
+// List # of like activities next to header?
