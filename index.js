@@ -110,7 +110,6 @@ function defaultBtnClicked() {
         typeActivity.innerText = `Type: ${obj.type}`
         participants.innerText = `Participants: ${obj.participants}`
         price.innerText = `Price: ${obj.price}`
-
         span.innerText = EMPTY_HEART
         span.setAttribute('id', 'like-glyph2')
      
@@ -177,8 +176,7 @@ function numberButtonClicked() {
             const typeActivity = document.createElement('p')
             const participants = document.createElement('p')
             const price = document.createElement('p')
-            const newUl = document.createElement('ul')
-            const newList = document.createElement('li')
+            const pTag = document.createElement('p')
             const span = document.createElement('span')
 
             newH3.innerText = `${obj.activity}`
@@ -197,9 +195,8 @@ function numberButtonClicked() {
             newDiv.appendChild(typeActivity)
             newDiv.appendChild(participants)
             newDiv.appendChild(price)
-            newDiv.appendChild(newUl)
-            newUl.appendChild(newList)
-            newList.appendChild(span)
+            newDiv.appendChild(pTag)
+            pTag.appendChild(span)
         
             const heart = document.getElementById('like-glyph3')
             const likeList = document.getElementById('listed-activities')
@@ -231,7 +228,7 @@ function numberButtonClicked() {
     )
 }
 
-// Add rest of stying changes to card 2 and 3
+// Change card headers
 // Add content to base card
 // Play with p tags in css to remove space between them
 
