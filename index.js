@@ -26,48 +26,48 @@ fetch(baseURL + randomType + `${typeSelect.value}`)
     }
    typeResultsContainer.innerHTML = ""
    const newDiv = document.createElement('div')
-   const newH3 = document.createElement('h3')
+   const newH4 = document.createElement('h4')
    const accessibility = document.createElement('p')
    const typeActivity = document.createElement('p')
    const participants = document.createElement('p')
    const price = document.createElement('p')
-   const newUl = document.createElement('ul')
-   const newList = document.createElement('li')
+   const pTag = document.createElement('p')
+   const span = document.createElement('span')
    
-   newH3.innerText = `${obj.activity}`
+   newH4.innerText = `${obj.activity}`
    newDiv.setAttribute('id', 'card')
    accessibility.innerText = `Accessibility: ${obj.accessibility}`
    typeActivity.innerText = `Type: ${obj.type}`
    participants.innerText = `Participants: ${obj.participants}`
    price.innerText = `Price: ${obj.price}`
-   newList.innerText = EMPTY_HEART
-   newList.setAttribute('id', 'like-glyph1')
+   span.innerText = EMPTY_HEART
+   span.setAttribute('id', 'like-glyph1')
 
    typeResultsContainer.appendChild(newDiv)
-   newDiv.appendChild(newH3)
+   newDiv.appendChild(newH4)
    newDiv.appendChild(accessibility)
    newDiv.appendChild(typeActivity)
    newDiv.appendChild(participants)
    newDiv.appendChild(price)
-   newDiv.appendChild(newUl)
-   newUl.appendChild(newList)
+   newDiv.appendChild(pTag)
+   pTag.appendChild(span)
 
    const heart = document.getElementById('like-glyph1')
    const likeList = document.getElementById('listed-activities')
 
    heart.addEventListener('click', heartClicked)
    function heartClicked() {
-       if (newList.innerText === EMPTY_HEART) {
-       newList.innerText = FULL_HEART
-       newList.classList.add('activated-heart')
-       const li = document.createElement('li')
-       li.innerText = `${obj.activity}`
-       li.classList.add('liked')
-       likeList.append(li)
+       if (span.innerText === EMPTY_HEART) {
+       span.innerText = FULL_HEART
+       span.classList.add('activated-heart')
+       const ul = document.createElement('ul')
+       ul.innerText = `${obj.activity}`
+       ul.classList.add('liked')
+       likeList.append(ul)
 
        } else {
-        newList.innerText = EMPTY_HEART
-        newList.classList.remove('activated-heart')
+        span.innerText = EMPTY_HEART
+        span.classList.remove('activated-heart')
         const liked = document.querySelectorAll('.liked')
         liked.forEach(element => {
             if (element.innerText === `${obj.activity}`) {
@@ -98,8 +98,8 @@ function defaultBtnClicked() {
         const typeActivity = document.createElement('p')
         const participants = document.createElement('p')
         const price = document.createElement('p')
-        const newUl = document.createElement('ul')
-        const newList = document.createElement('li')
+        const pTag = document.createElement('p')
+        const span = document.createElement('span')
         
         newH3.innerText = `${obj.activity}`
         newDiv.setAttribute('id', 'card2')
@@ -107,8 +107,9 @@ function defaultBtnClicked() {
         typeActivity.innerText = `Type: ${obj.type}`
         participants.innerText = `Participants: ${obj.participants}`
         price.innerText = `Price: ${obj.price}`
-        newList.innerText = EMPTY_HEART
-        newList.setAttribute('id', 'like-glyph2')
+
+        span.innerText = EMPTY_HEART
+        span.setAttribute('id', 'like-glyph2')
      
         defaultContainer.appendChild(newDiv)
         newDiv.appendChild(newH3)
@@ -116,8 +117,9 @@ function defaultBtnClicked() {
         newDiv.appendChild(typeActivity)
         newDiv.appendChild(participants)
         newDiv.appendChild(price)
-        newDiv.appendChild(newUl)
-        newUl.appendChild(newList)
+        newDiv.appendChild(pTag)
+        pTag.appendChild(span)
+
 
         const heart = document.getElementById('like-glyph2')
         const likeList = document.getElementById('listed-activities')
@@ -125,17 +127,17 @@ function defaultBtnClicked() {
         heart.addEventListener('click', heartClicked)
         
         function heartClicked() {
-            if (newList.innerText === EMPTY_HEART) {
-                newList.innerText = FULL_HEART
-                newList.classList.add('activated-heart')
+            if (span.innerText === EMPTY_HEART) {
+                span.innerText = FULL_HEART
+                span.classList.add('activated-heart')
                 const li = document.createElement('li')
                 li.innerText = `${obj.activity}`
                 li.classList.add('liked')
                 likeList.append(li)
      
             } else {
-                newList.innerText = EMPTY_HEART
-                newList.classList.remove('activated-heart')
+                span.innerText = EMPTY_HEART
+                span.classList.remove('activated-heart')
                 const liked = document.querySelectorAll('.liked')
                 liked.forEach(element => {
                     if (element.innerText === `${obj.activity}`) {
@@ -173,6 +175,7 @@ function numberButtonClicked() {
             const price = document.createElement('p')
             const newUl = document.createElement('ul')
             const newList = document.createElement('li')
+            const span = document.createElement('span')
 
             newH3.innerText = `${obj.activity}`
             newDiv.setAttribute('id', 'card3')
@@ -180,8 +183,8 @@ function numberButtonClicked() {
             typeActivity.innerText = `Type: ${obj.type}`
             participants.innerText = `Participants: ${obj.participants}`
             price.innerText = `Price: ${obj.price}`
-            newList.innerText = EMPTY_HEART
-            newList.setAttribute('id', 'like-glyph3')
+            span.innerText = EMPTY_HEART
+            span.setAttribute('id', 'like-glyph3')
             
 
             participantsContainer.appendChild(newDiv)
@@ -192,6 +195,7 @@ function numberButtonClicked() {
             newDiv.appendChild(price)
             newDiv.appendChild(newUl)
             newUl.appendChild(newList)
+            newList.appendChild(span)
         
             const heart = document.getElementById('like-glyph3')
             const likeList = document.getElementById('listed-activities')
@@ -199,17 +203,17 @@ function numberButtonClicked() {
             heart.addEventListener('click', heartClicked)
             
             function heartClicked() {
-                if (newList.innerText === EMPTY_HEART) {
-                    newList.innerText = FULL_HEART
-                    newList.classList.add('activated-heart')
+                if (span.innerText === EMPTY_HEART) {
+                    span.innerText = FULL_HEART
+                    span.classList.add('activated-heart')
                     const li = document.createElement('li')
                     li.innerText = `${obj.activity}`
                     li.classList.add('liked')
                     likeList.append(li)
 
                 } else {
-                    newList.innerText = EMPTY_HEART
-                    newList.classList.remove('activated-heart')
+                    span.innerText = EMPTY_HEART
+                    span.classList.remove('activated-heart')
                     const liked = document.querySelectorAll('.liked')
                     liked.forEach(element => {
                         if (element.innerText === `${obj.activity}`) {
@@ -223,12 +227,4 @@ function numberButtonClicked() {
     )
 }
 
-// How to make it to just click the heart?
-//How to remove the list element that was just created when heart is reserved to empty?
-
-// query select liked list elements
-// iterate over them to match the activity name with the list name
-// remove them
-
-
-// put the heart in a span tag inside a list tag
+// Play with p tags in css to remove space between them
