@@ -79,6 +79,11 @@ h3 {
     transition: all 0.2s;
  }
 
+ .baseImage {
+    justify-self: center;
+    height: 6rem;
+    width: auto;
+ }
 
 #card, #card2, #card3, #emptyCard {
     font-size: 13pt;

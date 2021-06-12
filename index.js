@@ -228,10 +228,9 @@ function numberButtonClicked() {
     )
 }
 
-// Play with p tags in css to remove space between them
-// Change card headers
-// Add content to base card
-// Change how things are listed from card 2 and 3 under liked activities
 
+// Add content to base card: Add image or make text in center?
+// Change how things are listed from card 2 and 3 under liked activities
+// Change spacing between buttons to be under cards
 
 // List # of like activities next to header?
