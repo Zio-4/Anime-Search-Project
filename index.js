@@ -63,10 +63,10 @@ fetch(baseURL + randomType + `${typeSelect.value}`)
        if (span.innerText === EMPTY_HEART) {
        span.innerText = FULL_HEART
        span.classList.add('activated-heart')
-       const ul = document.createElement('ul')
-       ul.innerText = `${obj.activity}`
-       ul.classList.add('liked')
-       likeList.append(ul)
+       const newP = document.createElement('p')
+       newP.innerText = `${obj.activity}`
+       newP.classList.add('liked')
+       likeList.append(newP)
 
        } else {
         span.innerText = EMPTY_HEART
@@ -132,10 +132,10 @@ function defaultBtnClicked() {
             if (span.innerText === EMPTY_HEART) {
                 span.innerText = FULL_HEART
                 span.classList.add('activated-heart')
-                const li = document.createElement('li')
-                li.innerText = `${obj.activity}`
-                li.classList.add('liked')
-                likeList.append(li)
+                const newP = document.createElement('p')
+                newP.innerText = `${obj.activity}`
+                newP.classList.add('liked')
+                likeList.append(newP)
      
             } else {
                 span.innerText = EMPTY_HEART
@@ -207,10 +207,10 @@ function numberButtonClicked() {
                 if (span.innerText === EMPTY_HEART) {
                     span.innerText = FULL_HEART
                     span.classList.add('activated-heart')
-                    const li = document.createElement('li')
-                    li.innerText = `${obj.activity}`
-                    li.classList.add('liked')
-                    likeList.append(li)
+                    const newP = document.createElement('p')
+                    newP.innerText = `${obj.activity}`
+                    newP.classList.add('liked')
+                    likeList.append(newP)
 
                 } else {
                     span.innerText = EMPTY_HEART
@@ -218,7 +218,7 @@ function numberButtonClicked() {
                     const liked = document.querySelectorAll('.liked')
                     liked.forEach(element => {
                         if (element.innerText === `${obj.activity}`) {
-                        element.remove()
+                            element.remove()
                             }
                         }
                     )
@@ -229,7 +229,6 @@ function numberButtonClicked() {
 }
 
 
-// Add content to base card: Add image or make text in center?
 // Change how things are listed from card 2 and 3 under liked activities
 // Change spacing between buttons to be under cards
 
