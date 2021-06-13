@@ -1,6 +1,6 @@
 // User clicks on the Get Activity button and a card is returned with the name of the activity shown along the top followed by accessibility (how easy it is to do), type of activity, number of people required, and the cost (from 0 to 1.0, 0 being free).
 // There are three buttons, the user can get a random activity without parameters, a random activity based on the type of activity, or a random activity based on the number of people.
-// A heart is also displayed on the bottom of the card for a user to like an activity and have it logged to the bottom of the page with a list of there liked activities
+// A heart is also displayed on the bottom of the card for a user to like an activity and have it logged to the bottom of the page with a list of their liked activities
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
