@@ -229,6 +229,3 @@ function numberButtonClicked() {
 }
 
 
-// Change spacing between buttons to be under cards
-
-// List # of like activities next to header?
