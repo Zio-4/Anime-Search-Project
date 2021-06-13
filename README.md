@@ -1,2 +1,2 @@
-# Anime-Search-Project
-Search for your favorite anime's and learn all about them.
+# The-Bored-Button
+Find an activity to do when you're bored. Just click the button!
