@@ -11,39 +11,43 @@ const participantsNeeded = "?participants="
 const baseCard = document.getElementById('emptyCard')
 
 // elements needed for type button interaction
-
 const typeButton = document.getElementById('type-button')
 const typeSelect = document.getElementById('activity-type')
 
 typeButton.addEventListener('click', typeButtonClicked)
 
 function typeButtonClicked() {
-fetch(baseURL + randomType + `${typeSelect.value}`)
-.then(resp => resp.json())
-.then(obj => {
-    if (typeSelect.value === "") {
-        alert('Please pick a type of activity!')
-        return
-    } 
-    const container = document.getElementById('type-container')
-    reset(container)
-   const newDiv = document.createElement('div')
-   innerNewDiv(newDiv, obj.activity, obj.accessibility, obj.type, obj.participants, obj.price)
-   const pTag = document.createElement('p')
-   const span = document.createElement('span')
-   
-   newDiv.setAttribute('id', 'card')
-   span.innerText = EMPTY_HEART
-   span.setAttribute('id', 'like-glyph1')
+    fetch(baseURL + randomType + `${typeSelect.value}`)
+    .then(resp => resp.json())
+    .then(obj => {
+        if (typeSelect.value === "") {
+            alert('Please pick a type of activity!')
+            return
+        } 
+        const container = document.getElementById('type-container')
+        reset(container)
+        const newDiv = document.createElement('div')
+        innerNewDiv(newDiv, obj.activity, obj.accessibility, obj.type, obj.participants, obj.price)
+        const pTag = document.createElement('p')
+        const span = document.createElement('span')
+    
+        newDiv.setAttribute('id', 'card')
+        span.innerText = EMPTY_HEART
+        span.setAttribute('id', 'like-glyph1')
 
-   container.appendChild(newDiv)
-   newDiv.appendChild(pTag)
-   pTag.appendChild(span)
+        container.appendChild(newDiv)
+        newDiv.appendChild(pTag)
+        pTag.appendChild(span)
 
-   span.addEventListener('click', () => heartClicked(span, obj.activity) )
-        }
-    )
-}
+        span.addEventListener('click', () => heartClicked(span, obj.activity) )
+            }
+        )
+    .catch(error => {
+        alert("There was a problem getting the data!")
+        console.log(error.message);
+            }
+        )
+    }
 
 
 // Elements for default button (center)
@@ -73,11 +77,15 @@ function defaultBtnClicked() {
         span.addEventListener('click', () => heartClicked(span, obj.activity))
         }
     )
+    .catch(error => {
+        alert("There was a problem getting the data!")
+        console.log(error.message);
+        }
+    )
 }         
 
 
 // Elements for number of people button
-const participantsContainer = document.getElementById('participants-container')
 const numberBtn = document.getElementById('people-button')
 const selectParticipants = document.getElementById('number-of-people')
 
@@ -107,6 +115,11 @@ function numberButtonClicked() {
             pTag.appendChild(span)
 
             span.addEventListener('click', () => heartClicked(span, obj.activity))
+        }
+    )
+    .catch(error => {
+        alert("There was a problem getting the data!")
+        console.log(error.message);
         }
     )
 }
