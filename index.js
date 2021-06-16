@@ -15,7 +15,6 @@ const typeResultsContainer = document.getElementById('type-container')
 const typeButton = document.getElementById('type-button')
 const typeSelect = document.getElementById('activity-type')
 
-
 typeButton.addEventListener('click', typeButtonClicked)
 
 function typeButtonClicked() {
@@ -28,7 +27,7 @@ fetch(baseURL + randomType + `${typeSelect.value}`)
     }
    baseCard.remove() 
    typeResultsContainer.innerHTML = ""
-   const newDiv = document.createElement('div')
+   const newDiv = document.createElement('div') // inner html
    const newH3 = document.createElement('h3')
    const accessibility = document.createElement('p')
    const typeActivity = document.createElement('p')
@@ -36,7 +35,7 @@ fetch(baseURL + randomType + `${typeSelect.value}`)
    const price = document.createElement('p')
    const pTag = document.createElement('p')
    const span = document.createElement('span')
-   
+
    newH3.innerText = `${obj.activity}`
    newDiv.setAttribute('id', 'card')
    accessibility.innerText = `Accessibility: ${obj.accessibility}`
@@ -55,33 +54,33 @@ fetch(baseURL + randomType + `${typeSelect.value}`)
    newDiv.appendChild(pTag)
    pTag.appendChild(span)
 
-   const heart = document.getElementById('like-glyph1')
-   const likeList = document.getElementById('listed-activities')
-
-   heart.addEventListener('click', heartClicked)
-   function heartClicked() {
-       if (span.innerText === EMPTY_HEART) {
-       span.innerText = FULL_HEART
-       span.classList.add('activated-heart')
-       const newP = document.createElement('p')
-       newP.innerText = `${obj.activity}`
-       newP.classList.add('liked')
-       likeList.append(newP)
-
-       } else {
-        span.innerText = EMPTY_HEART
-        span.classList.remove('activated-heart')
-        const liked = document.querySelectorAll('.liked')
-        liked.forEach(element => {
-            if (element.innerText === `${obj.activity}`) {
-                element.remove()
-                            }         
-                        }
-                    )
-                }
-            }
+   span.addEventListener('click', () => heartClicked(span, obj.activity) )
         }
     )
+}
+
+function heartClicked(span, activity) {
+   const likeList = document.getElementById('listed-activities')
+
+    if (span.innerText === EMPTY_HEART) {
+    span.innerText = FULL_HEART
+    span.classList.add('activated-heart')
+    const newP = document.createElement('p')
+    newP.innerText = activity
+    newP.classList.add('liked')
+    likeList.append(newP)
+
+    } else {
+     span.innerText = EMPTY_HEART
+     span.classList.remove('activated-heart')
+     const liked = document.querySelectorAll('.liked')
+     liked.forEach(element => {
+         if (element.innerText === activity) {
+             element.remove()
+                }  
+            }
+        )
+    }
 }
 
 // Elements for default button (center)
@@ -121,34 +120,9 @@ function defaultBtnClicked() {
         newDiv.appendChild(price)
         newDiv.appendChild(pTag)
         pTag.appendChild(span)
-
-
-        const heart = document.getElementById('like-glyph2')
-        const likeList = document.getElementById('listed-activities')
      
-        heart.addEventListener('click', heartClicked)
-        
-        function heartClicked() {
-            if (span.innerText === EMPTY_HEART) {
-                span.innerText = FULL_HEART
-                span.classList.add('activated-heart')
-                const newP = document.createElement('p')
-                newP.innerText = `${obj.activity}`
-                newP.classList.add('liked')
-                likeList.append(newP)
-     
-            } else {
-                span.innerText = EMPTY_HEART
-                span.classList.remove('activated-heart')
-                const liked = document.querySelectorAll('.liked')
-                liked.forEach(element => {
-                    if (element.innerText === `${obj.activity}`) {
-                    element.remove()
-                            }
-                        }
-                    )
-                }
-            }
+        span.addEventListener('click', () => heartClicked(span, obj.activity))
+
         }
     )
 }          
@@ -197,33 +171,8 @@ function numberButtonClicked() {
             newDiv.appendChild(price)
             newDiv.appendChild(pTag)
             pTag.appendChild(span)
-        
-            const heart = document.getElementById('like-glyph3')
-            const likeList = document.getElementById('listed-activities')
 
-            heart.addEventListener('click', heartClicked)
-            
-            function heartClicked() {
-                if (span.innerText === EMPTY_HEART) {
-                    span.innerText = FULL_HEART
-                    span.classList.add('activated-heart')
-                    const newP = document.createElement('p')
-                    newP.innerText = `${obj.activity}`
-                    newP.classList.add('liked')
-                    likeList.append(newP)
-
-                } else {
-                    span.innerText = EMPTY_HEART
-                    span.classList.remove('activated-heart')
-                    const liked = document.querySelectorAll('.liked')
-                    liked.forEach(element => {
-                        if (element.innerText === `${obj.activity}`) {
-                            element.remove()
-                            }
-                        }
-                    )
-                }
-            }
+            span.addEventListener('click', () => heartClicked(span, obj.activity))
         }
     )
 }
