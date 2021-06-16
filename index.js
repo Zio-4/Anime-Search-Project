@@ -17,6 +17,7 @@ const typeSelect = document.getElementById('activity-type')
 
 typeButton.addEventListener('click', typeButtonClicked)
 
+
 function typeButtonClicked() {
 fetch(baseURL + randomType + `${typeSelect.value}`)
 .then(resp => resp.json())
@@ -27,30 +28,16 @@ fetch(baseURL + randomType + `${typeSelect.value}`)
     }
    baseCard.remove() 
    typeResultsContainer.innerHTML = ""
-   const newDiv = document.createElement('div') // inner html
-   const newH3 = document.createElement('h3')
-   const accessibility = document.createElement('p')
-   const typeActivity = document.createElement('p')
-   const participants = document.createElement('p')
-   const price = document.createElement('p')
+   const newDiv = document.createElement('div')
+   innerNewDiv(newDiv, obj.activity, obj.accessibility, obj.type, obj.participants, obj.price)
    const pTag = document.createElement('p')
    const span = document.createElement('span')
-
-   newH3.innerText = `${obj.activity}`
+   
    newDiv.setAttribute('id', 'card')
-   accessibility.innerText = `Accessibility: ${obj.accessibility}`
-   typeActivity.innerText = `Type: ${obj.type}`
-   participants.innerText = `Participants: ${obj.participants}`
-   price.innerText = `Price: ${obj.price}`
    span.innerText = EMPTY_HEART
    span.setAttribute('id', 'like-glyph1')
 
    typeResultsContainer.appendChild(newDiv)
-   newDiv.appendChild(newH3)
-   newDiv.appendChild(accessibility)
-   newDiv.appendChild(typeActivity)
-   newDiv.appendChild(participants)
-   newDiv.appendChild(price)
    newDiv.appendChild(pTag)
    pTag.appendChild(span)
 
@@ -59,29 +46,6 @@ fetch(baseURL + randomType + `${typeSelect.value}`)
     )
 }
 
-function heartClicked(span, activity) {
-   const likeList = document.getElementById('listed-activities')
-
-    if (span.innerText === EMPTY_HEART) {
-    span.innerText = FULL_HEART
-    span.classList.add('activated-heart')
-    const newP = document.createElement('p')
-    newP.innerText = activity
-    newP.classList.add('liked')
-    likeList.append(newP)
-
-    } else {
-     span.innerText = EMPTY_HEART
-     span.classList.remove('activated-heart')
-     const liked = document.querySelectorAll('.liked')
-     liked.forEach(element => {
-         if (element.innerText === activity) {
-             element.remove()
-                }  
-            }
-        )
-    }
-}
 
 // Elements for default button (center)
 const defaultBtn = document.getElementById('default-button')
@@ -95,29 +59,15 @@ function defaultBtnClicked() {
     .then(obj => {
         defaultContainer.innerHTML = ""
         const newDiv = document.createElement('div')
-        const newH3 = document.createElement('h3')
-        const accessibility = document.createElement('p')
-        const typeActivity = document.createElement('p')
-        const participants = document.createElement('p')
-        const price = document.createElement('p')
+        innerNewDiv(newDiv, obj.activity, obj.accessibility, obj.type, obj.participants, obj.price)
         const pTag = document.createElement('p')
         const span = document.createElement('span')
         
-        newH3.innerText = `${obj.activity}`
         newDiv.setAttribute('id', 'card2')
-        accessibility.innerText = `Accessibility: ${obj.accessibility}`
-        typeActivity.innerText = `Type: ${obj.type}`
-        participants.innerText = `Participants: ${obj.participants}`
-        price.innerText = `Price: ${obj.price}`
         span.innerText = EMPTY_HEART
         span.setAttribute('id', 'like-glyph2')
      
         defaultContainer.appendChild(newDiv)
-        newDiv.appendChild(newH3)
-        newDiv.appendChild(accessibility)
-        newDiv.appendChild(typeActivity)
-        newDiv.appendChild(participants)
-        newDiv.appendChild(price)
         newDiv.appendChild(pTag)
         pTag.appendChild(span)
      
@@ -145,30 +95,16 @@ function numberButtonClicked() {
             baseCard.remove()
             participantsContainer.innerHTML = ""
             const newDiv = document.createElement('div')
-            const newH3 = document.createElement('h3')
-            const accessibility = document.createElement('p')
-            const typeActivity = document.createElement('p')
-            const participants = document.createElement('p')
-            const price = document.createElement('p')
+            innerNewDiv(newDiv, obj.activity, obj.accessibility, obj.type, obj.participants, obj.price)
             const pTag = document.createElement('p')
             const span = document.createElement('span')
 
-            newH3.innerText = `${obj.activity}`
             newDiv.setAttribute('id', 'card3')
-            accessibility.innerText = `Accessibility: ${obj.accessibility}`
-            typeActivity.innerText = `Type: ${obj.type}`
-            participants.innerText = `Participants: ${obj.participants}`
-            price.innerText = `Price: ${obj.price}`
             span.innerText = EMPTY_HEART
             span.setAttribute('id', 'like-glyph3')
             
 
             participantsContainer.appendChild(newDiv)
-            newDiv.appendChild(newH3)
-            newDiv.appendChild(accessibility)
-            newDiv.appendChild(typeActivity)
-            newDiv.appendChild(participants)
-            newDiv.appendChild(price)
             newDiv.appendChild(pTag)
             pTag.appendChild(span)
 
@@ -177,5 +113,36 @@ function numberButtonClicked() {
     )
 }
 
+function innerNewDiv (newDiv, activity, accessibility, type, participants, price) {
+    newDiv.innerHTML = 
+   `<h3>${activity}</h3>
+    <p>Accessibility: ${accessibility} </p>
+    <p>Type: ${type} </p>
+    <p>Participants: ${participants} </p>
+    <p>Price: ${price}</p>`
+}
 
+function heartClicked(span, activity) {
+    const likeList = document.getElementById('listed-activities')
+ 
+     if (span.innerText === EMPTY_HEART) {
+     span.innerText = FULL_HEART
+     span.classList.add('activated-heart')
+     const newP = document.createElement('p')
+     newP.innerText = activity
+     newP.classList.add('liked')
+     likeList.append(newP)
+ 
+     } else {
+      span.innerText = EMPTY_HEART
+      span.classList.remove('activated-heart')
+      const liked = document.querySelectorAll('.liked')
+      liked.forEach(element => {
+          if (element.innerText === activity) {
+              element.remove()
+                 }  
+             }
+         )
+     }
+ }
 // test
