@@ -80,15 +80,15 @@ function defaultBtnClicked() {
 // Elements for number of people button
 const participantsContainer = document.getElementById('participants-container')
 const numberBtn = document.getElementById('people-button')
-const numberOfPeople = document.getElementById('number-of-people')
+const selectParticipants = document.getElementById('number-of-people')
 
 numberBtn.addEventListener('click', numberButtonClicked)
 
 function numberButtonClicked() {
-    fetch(baseURL + participantsNeeded + `${numberOfPeople.value}`)
+    fetch(baseURL + participantsNeeded + `${selectParticipants.value}`)
     .then(resp => resp.json())
     .then(obj => {
-        if (numberOfPeople.value === "") {
+        if (selectParticipants.value === "") {
             alert('Please pick an amount of people for the activity!')
             return
         }
