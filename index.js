@@ -18,13 +18,13 @@ function typeButtonClicked() {
     fetch(baseURL + randomType + `${typeSelect.value}`)
     .then(resp => resp.json())
     .then(obj => {
-        if (typeSelect.value === "") {
-            alert('Please pick a type of activity!')
-            return
-        } 
-        const container = document.getElementById('type-container')
-        let i = "0", j = "0"
-        renderCard(container, obj, i, j)
+            if (typeSelect.value === "") {
+                alert('Please pick a type of activity!')
+                return
+            } 
+            const container = document.getElementById('type-container')
+            let i = "0", j = "0"
+            renderCard(container, obj, i, j)
             }
         )
     .catch(error => {
@@ -42,11 +42,11 @@ function defaultBtnClicked() {
     fetch(baseURL)
     .then(resp => resp.json())
     .then(obj => {
-        const container = document.getElementById('default-container')
-        let i = "1", j = "1"
-        renderCard(container, obj, i, j)
-        }
-    )
+            const container = document.getElementById('default-container')
+            let i = "1", j = "1"
+            renderCard(container, obj, i, j)
+            }
+        )
     .catch(error => {
         alert("There was a problem getting the data!")
         console.log(error.message);
@@ -63,20 +63,20 @@ function numberButtonClicked() {
     fetch(baseURL + participantsNeeded + `${selectParticipants.value}`)
     .then(resp => resp.json())
     .then(obj => {
-        if (selectParticipants.value === "") {
-            alert('Please pick an amount of people for the activity!')
-            return
-        }
+            if (selectParticipants.value === "") {
+                alert('Please pick an amount of people for the activity!')
+                return
+            }
             const container = document.getElementById('participants-container')
             let i = "2", j = "2"
             renderCard(container, obj, i, j)
-        }
-    )
+            }
+        )
     .catch(error => {
         alert("There was a problem getting the data!")
         console.log(error.message);
-        }
-    )
+            }
+        )
 }
 
 // Callback functions for rendering cards and listing liked activities
