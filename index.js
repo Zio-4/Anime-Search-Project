@@ -7,7 +7,6 @@ const FULL_HEART = '♥'
 const baseURL = "http://www.boredapi.com/api/activity"
 const randomType = "?type="
 const participantsNeeded = "?participants="
-
 const baseCard = document.getElementById('emptyCard')
 
 // elements/EventListener for type button interaction
@@ -101,13 +100,11 @@ function renderCard(container, obj, i, j) {
     newDiv.setAttribute('id', `card${i}`)
     span.setAttribute('id', `like-glyph${j}`)
 
-    
     container.appendChild(newDiv)
     newDiv.appendChild(pTag)
     pTag.appendChild(span)
 
     span.addEventListener('click', () => heartClicked(span, activity) )
-
 }
 
 function heartClicked(span, activity) {
