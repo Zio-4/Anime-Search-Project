@@ -10,10 +10,9 @@ const participantsNeeded = "?participants="
 
 const baseCard = document.getElementById('emptyCard')
 
-// elements needed for type button interaction
+// elements/EventListener for type button interaction
 const typeButton = document.getElementById('type-button')
 const typeSelect = document.getElementById('activity-type')
-
 typeButton.addEventListener('click', typeButtonClicked)
 
 function typeButtonClicked() {
@@ -25,21 +24,8 @@ function typeButtonClicked() {
             return
         } 
         const container = document.getElementById('type-container')
-        reset(container)
-        const newDiv = document.createElement('div')
-        innerNewDiv(newDiv, obj.activity, obj.accessibility, obj.type, obj.participants, obj.price)
-        const pTag = document.createElement('p')
-        const span = document.createElement('span')
-    
-        newDiv.setAttribute('id', 'card')
-        span.innerText = EMPTY_HEART
-        span.setAttribute('id', 'like-glyph1')
-
-        container.appendChild(newDiv)
-        newDiv.appendChild(pTag)
-        pTag.appendChild(span)
-
-        span.addEventListener('click', () => heartClicked(span, obj.activity) )
+        let i = "0", j = "0"
+        renderCard(container, obj, i, j)
             }
         )
     .catch(error => {
@@ -49,10 +35,8 @@ function typeButtonClicked() {
         )
     }
 
-
-// Elements for default button (center)
+// elements/EventListener for default button interaction
 const defaultBtn = document.getElementById('default-button')
-
 defaultBtn.addEventListener('click', defaultBtnClicked)
 
 function defaultBtnClicked() {
@@ -60,21 +44,8 @@ function defaultBtnClicked() {
     .then(resp => resp.json())
     .then(obj => {
         const container = document.getElementById('default-container')
-        reset(container)
-        const newDiv = document.createElement('div')
-        innerNewDiv(newDiv, obj.activity, obj.accessibility, obj.type, obj.participants, obj.price)
-        const pTag = document.createElement('p')
-        const span = document.createElement('span')
-        
-        newDiv.setAttribute('id', 'card2')
-        span.innerText = EMPTY_HEART
-        span.setAttribute('id', 'like-glyph2')
-     
-        container.appendChild(newDiv)
-        newDiv.appendChild(pTag)
-        pTag.appendChild(span)
-     
-        span.addEventListener('click', () => heartClicked(span, obj.activity))
+        let i = "1", j = "1"
+        renderCard(container, obj, i, j)
         }
     )
     .catch(error => {
@@ -84,11 +55,9 @@ function defaultBtnClicked() {
     )
 }         
 
-
-// Elements for number of people button
+// elements/EventListener for participants button interaction
 const numberBtn = document.getElementById('people-button')
 const selectParticipants = document.getElementById('number-of-people')
-
 numberBtn.addEventListener('click', numberButtonClicked)
 
 function numberButtonClicked() {
@@ -100,21 +69,8 @@ function numberButtonClicked() {
             return
         }
             const container = document.getElementById('participants-container')
-            reset(container)
-            const newDiv = document.createElement('div')
-            innerNewDiv(newDiv, obj.activity, obj.accessibility, obj.type, obj.participants, obj.price)
-            const pTag = document.createElement('p')
-            const span = document.createElement('span')
-
-            newDiv.setAttribute('id', 'card3')
-            span.innerText = EMPTY_HEART
-            span.setAttribute('id', 'like-glyph3')
-            
-            container.appendChild(newDiv)
-            newDiv.appendChild(pTag)
-            pTag.appendChild(span)
-
-            span.addEventListener('click', () => heartClicked(span, obj.activity))
+            let i = "2", j = "2"
+            renderCard(container, obj, i, j)
         }
     )
     .catch(error => {
@@ -124,13 +80,34 @@ function numberButtonClicked() {
     )
 }
 
-function innerNewDiv (newDiv, activity, accessibility, type, participants, price) {
+// Callback functions for rendering cards and listing liked activities
+function renderCard(container, obj, i, j) {
+    baseCard.remove() 
+    container.innerHTML = ""
+    const {activity, accessibility, type, participants, price} = obj
+    const newDiv = document.createElement('div')
     newDiv.innerHTML = 
-   `<h3>${activity}</h3>
-    <p>Accessibility: ${accessibility} </p>
-    <p>Type: ${type} </p>
-    <p>Participants: ${participants} </p>
-    <p>Price: ${price}</p>`
+        `<h3>${activity}</h3>
+        <p>Accessibility: ${accessibility} </p>
+        <p>Type: ${type} </p>
+        <p>Participants: ${participants} </p>
+        <p>Price: ${price}</p>`
+    const pTag = document.createElement('p')
+    const span = document.createElement('span')
+    span.innerText = EMPTY_HEART
+    
+    i++
+    j++
+    newDiv.setAttribute('id', `card${i}`)
+    span.setAttribute('id', `like-glyph${j}`)
+
+    
+    container.appendChild(newDiv)
+    newDiv.appendChild(pTag)
+    pTag.appendChild(span)
+
+    span.addEventListener('click', () => heartClicked(span, activity) )
+
 }
 
 function heartClicked(span, activity) {
@@ -156,8 +133,3 @@ function heartClicked(span, activity) {
          )
      }
  }
-
- function reset(container) {
-    baseCard.remove() 
-   container.innerHTML = ""
-}
